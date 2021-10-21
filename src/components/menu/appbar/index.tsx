@@ -4,28 +4,27 @@ import { Toolbar } from "@components/menu/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import { styled } from "@mui/material/styles";
-
 import { config } from "../menu.config";
 
-interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window?: () => Window;
+import styledC from "styled-components";
+
+const AppBarContent = styledC.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
+
+interface ElevateBarProps {
   children: React.ReactElement;
   open?: boolean;
 }
 
-function ElevationScroll(props: Props) {
-  const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
+function ElevationScroll(props: ElevateBarProps) {
+  const { children } = props;
   const trigger = useScrollTrigger({
     disableHysteresis: true,
     threshold: 0,
-    target: window ? window() : undefined,
   });
 
   return React.cloneElement(children, {
@@ -36,10 +35,11 @@ function ElevationScroll(props: Props) {
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
-
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })<AppBarProps>(({ theme, open }) => ({
+  background: "white",
+  color: "black",
   transition: theme.transitions.create(["margin", "width"], {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
@@ -54,16 +54,17 @@ const AppBar = styled(MuiAppBar, {
   }),
 }));
 
-export default function ElevateAppBar(props: Props) {
+export default function ElevateAppBar(props: ElevateBarProps) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <ElevationScroll {...props}>
+      <ElevationScroll>
         <AppBar open={props.open}>
-          <Toolbar>{props.children}</Toolbar>
+          <Toolbar>
+            <AppBarContent>{props.children}</AppBarContent>
+          </Toolbar>
         </AppBar>
       </ElevationScroll>
-      <Toolbar />
     </React.Fragment>
   );
 }

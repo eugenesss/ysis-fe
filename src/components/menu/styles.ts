@@ -1,12 +1,9 @@
-import styled from "styled-components";
+import muiStyled from "@mui/system/styled";
 
-export const Toolbar = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 84px;
-
-  @media (max-width: 600px) {
-    min-height: 54px;
-  }
-`;
+export const Toolbar = muiStyled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+  minHeight: "104px",
+  padding: theme.spacing(4),
+}));
