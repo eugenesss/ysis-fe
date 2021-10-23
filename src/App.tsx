@@ -10,7 +10,22 @@ const theme = createTheme({
     },
   },
   spacing: 8,
-  typography: {},
+  typography: {
+    caption: {
+      color: "#9f9f9f",
+      fontWeight: 500,
+    },
+  },
+
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          color: "white",
+        },
+      },
+    },
+  },
 });
 
 function App() {

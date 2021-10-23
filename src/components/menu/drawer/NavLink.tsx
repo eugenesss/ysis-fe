@@ -1,7 +1,7 @@
-import * as React from "react";
-import NavLink, { NavLinkProps } from "react-router-dom/NavLink";
-import styled from "styled-components";
-import { useTheme } from "@mui/material/styles";
+import * as React from 'react';
+import NavLink, { NavLinkProps } from 'react-router-dom/NavLink';
+import styled from 'styled-components';
+import { useTheme } from '@mui/material/styles';
 
 const StyledNavLink = styled((props) => <NavLink {...props} />)`
   text-decoration: none;
@@ -10,7 +10,7 @@ const StyledNavLink = styled((props) => <NavLink {...props} />)`
 
 interface CustomNavLinkProps {
   children: React.ReactNode;
-  to: NavLinkProps["to"];
+  to: NavLinkProps['to'];
 }
 
 const CustomNavLink: React.FunctionComponent<CustomNavLinkProps> = ({

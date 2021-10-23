@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import LoginPage from "./login";
-import Dashboard from "./dashboard";
-import NotFound from "./not-found";
+import * as React from 'react';
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import LoginPage from './login';
+import Dashboard from './dashboard';
+import NotFound from './not-found';
 
 interface RoutesProps {}
 

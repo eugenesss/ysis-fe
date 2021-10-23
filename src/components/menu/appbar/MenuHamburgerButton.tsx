@@ -1,6 +1,6 @@
-import * as React from "react";
-import IconButton, { IconButtonProps } from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
+import * as React from 'react';
+import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 
 interface MenuHaburgerButtonProps {
   buttonProps?: Partial<IconButtonProps>;
@@ -17,7 +17,7 @@ const MenuHaburgerButton: React.FunctionComponent<MenuHaburgerButtonProps> = ({
       aria-label="open drawer"
       onClick={handleOnClick}
       edge="start"
-      sx={{ marginRight: "16px" }}
+      sx={{ marginRight: '16px' }}
       {...buttonProps}
     >
       <MenuIcon />

@@ -1,9 +1,9 @@
-import * as React from "react";
-import { styled } from "@mui/system";
+import * as React from 'react';
+import { styled } from '@mui/system';
 
-const DrawerFooterWrapper = styled("div")(({ theme }) => ({
+const DrawerFooterWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(4),
-  textAlign: "center",
+  textAlign: 'center',
 }));
 
 interface DrawerFooterProps {}

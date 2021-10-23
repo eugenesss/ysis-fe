@@ -1,16 +1,16 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
-import Typography from "@mui/material/Typography";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
+import Typography from '@mui/material/Typography';
 
 // AppBar
-import AppBar from "@components/menu/appbar";
-import MenuHamburgerButton from "@components/menu/appbar/MenuHamburgerButton";
+import AppBar from '@components/menu/appbar';
+import MenuHamburgerButton from '@components/menu/appbar/MenuHamburgerButton';
 
-import SideDrawer from "@components/menu/drawer";
-import ContentWrapper from "@components/menu/ContentWrapper";
+import SideDrawer from '@components/menu/drawer';
+import ContentWrapper from '@components/menu/ContentWrapper';
 
-import MenuRoutes from "./menuRoutes";
+import MenuRoutes from './menuRoutes';
 
 interface MenuContainerProps {
   pageTitle: string;
@@ -18,7 +18,7 @@ interface MenuContainerProps {
 
 const MenuContainer: React.FunctionComponent<MenuContainerProps> = (props) => {
   const [open, setOpen] = React.useState(
-    window.innerWidth < 600 ? false : true
+    window.innerWidth < 600 ? false : true,
   );
 
   const handleDrawerOpen = () => {
@@ -30,14 +30,14 @@ const MenuContainer: React.FunctionComponent<MenuContainerProps> = (props) => {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar open={open}>
         <React.Fragment>
-          <div style={{ display: "flex" }}>
+          <div style={{ display: 'flex' }}>
             <MenuHamburgerButton
               handleOnClick={handleDrawerOpen}
-              buttonProps={{ style: { ...(open && { display: "none" }) } }}
+              buttonProps={{ style: { ...(open && { display: 'none' }) } }}
             />
             <Typography variant="h6" alignSelf="center">
               {props.pageTitle}

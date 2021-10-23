@@ -1,23 +1,23 @@
-import * as React from "react";
-import { styled } from "@mui/material/styles";
-import { Toolbar } from "@components/menu/styles";
-import { config } from "@components/menu/menu.config";
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import { Toolbar } from '@components/menu/styles';
+import { config } from '@components/menu/menu.config';
 
 const { drawerWidth } = config;
 
-const Main = styled("main", {
-  shouldForwardProp: (prop) => prop !== "isDrawerOpen",
+const Main = styled('main', {
+  shouldForwardProp: (prop) => prop !== 'isDrawerOpen',
 })<{
   isDrawerOpen?: boolean;
 }>(({ theme, isDrawerOpen }) => ({
   flexGrow: 1,
-  transition: theme.transitions.create("margin", {
+  transition: theme.transitions.create('margin', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
   marginLeft: `-${drawerWidth}px`,
   ...(isDrawerOpen && {
-    transition: theme.transitions.create("margin", {
+    transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -25,7 +25,7 @@ const Main = styled("main", {
   }),
 }));
 
-const ContentContainer = styled("div")(({ theme }) => ({
+const ContentContainer = styled('div')(({ theme }) => ({
   padding: theme.spacing(4),
   paddingTop: theme.spacing(2),
 }));

@@ -1,22 +1,22 @@
-import * as React from "react";
-import { Toolbar } from "@components/menu/styles";
-import List from "@mui/material/List";
-import IconButton from "@mui/material/IconButton";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ListItem from "@components/menu/drawer/ListItem";
-import NavLink from "@components/menu/drawer/NavLink";
-import DrawerWrapper from "@components/menu/drawer/DrawerWrapper";
-import DrawerFooter from "@components/menu/drawer/DrawerFooter";
+import * as React from 'react';
+import { Toolbar } from '@components/menu/styles';
+import List from '@mui/material/List';
+import IconButton from '@mui/material/IconButton';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ListItem from '@components/menu/drawer/ListItem';
+import NavLink from '@components/menu/drawer/NavLink';
+import DrawerWrapper from '@components/menu/drawer/DrawerWrapper';
+import DrawerFooter from '@components/menu/drawer/DrawerFooter';
 
-import Button from "@mui/material/Button";
-import LogoutIcon from "@mui/icons-material/Logout";
+import Button from '@mui/material/Button';
+import LogoutIcon from '@mui/icons-material/Logout';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const AppLogo = styled.div`
   height: 50px;
   width: 50px;
-  background-image: url("./assets/logo.png");
+  background-image: url('./assets/logo.png');
   background-size: cover;
   background-position: center;
 `;
@@ -48,7 +48,7 @@ const MenuDrawer: React.FunctionComponent<MenuDrawerProps> = ({
           <ChevronLeftIcon />
         </IconButton>
       </Toolbar>
-      <List style={{ overflow: "scroll" }}>
+      <List style={{ overflow: 'scroll' }}>
         {drawerList.map((drawerItem) => (
           <NavLink to={drawerItem.to} key={drawerItem.label}>
             <ListItem label={drawerItem.label} icon={drawerItem.icon} />
@@ -58,7 +58,7 @@ const MenuDrawer: React.FunctionComponent<MenuDrawerProps> = ({
       <DrawerFooter>
         <Button
           onClick={logoutAction}
-          style={{ color: "#545454", width: "120px" }}
+          style={{ color: '#545454', width: '120px' }}
           startIcon={<LogoutIcon />}
         >
           Logout

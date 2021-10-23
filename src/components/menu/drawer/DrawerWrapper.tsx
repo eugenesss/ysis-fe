@@ -1,6 +1,6 @@
-import * as React from "react";
-import Drawer, { DrawerProps } from "@mui/material/Drawer";
-import { config } from "@components/menu/menu.config";
+import * as React from 'react';
+import Drawer, { DrawerProps } from '@mui/material/Drawer';
+import { config } from '@components/menu/menu.config';
 
 interface DrawerWrapperProps {
   drawerPropsOverride?: Partial<DrawerProps>;
@@ -18,16 +18,16 @@ const DrawerWrapper: React.FunctionComponent<DrawerWrapperProps> = ({
       sx={{
         width: drawerWidth,
         flexShrink: 0,
-        "& .MuiDrawer-paper": {
-          display: "flex",
-          justifyContent: "space-between",
+        '& .MuiDrawer-paper': {
+          display: 'flex',
+          justifyContent: 'space-between',
           width: drawerWidth,
-          boxSizing: "border-box",
+          boxSizing: 'border-box',
           background: sideDrawerBackground,
-          color: "#505050",
-          border: "none",
-          "@media (max-width:600px)": {
-            width: "100vw",
+          color: '#505050',
+          border: 'none',
+          '@media (max-width:600px)': {
+            width: '100vw',
           },
         },
       }}

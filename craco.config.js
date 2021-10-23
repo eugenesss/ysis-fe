@@ -8,4 +8,18 @@ module.exports = {
       "@components": path.resolve(__dirname, "src/components"),
     },
   },
+  jest: {
+    configure: {
+      collectCoverage: true,
+      collectCoverageFrom: [
+        "src/**/*.{ts, tsx}",
+        "!**/node_modules/**",
+        "!**/.config.ts",
+        "!**/.mock.ts",
+      ],
+      moduleFileExtensions: ["ts", "tsx"],
+      testMatch: ["**/*.spec.ts", "**/*.spec.tsx"],
+      verbose: true,
+    },
+  },
 };
