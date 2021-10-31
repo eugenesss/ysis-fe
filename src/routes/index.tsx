@@ -1,8 +1,15 @@
 import * as React from 'react';
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
+import {
+  Switch,
+  Route,
+  BrowserRouter as Router,
+  Redirect,
+  RouteProps,
+} from 'react-router-dom';
 import LoginPage from './login';
 import Dashboard from './dashboard';
 import NotFound from './not-found';
+import { useAuth } from '@app/container/AuthContainer/useAuth';
 
 interface RoutesProps {}
 
@@ -10,7 +17,12 @@ const Routes: React.FunctionComponent<RoutesProps> = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/dashboard" component={Dashboard} />
+        <PrivateRoute path="/" exact>
+          <Redirect to="/dashboard" />
+        </PrivateRoute>
+        <PrivateRoute path="/dashboard" exact>
+          <Dashboard />
+        </PrivateRoute>
         <Route path="/login" component={LoginPage} />
         <Route component={NotFound} />
       </Switch>
@@ -19,3 +31,24 @@ const Routes: React.FunctionComponent<RoutesProps> = () => {
 };
 
 export default Routes;
+
+function PrivateRoute({ children, ...rest }: RouteProps) {
+  let auth = useAuth();
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        auth ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/login',
+              state: { from: location },
+            }}
+          />
+        )
+      }
+    />
+  );
+}

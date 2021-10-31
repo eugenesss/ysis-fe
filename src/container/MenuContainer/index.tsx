@@ -11,6 +11,7 @@ import SideDrawer from '@components/menu/drawer';
 import ContentWrapper from '@components/menu/ContentWrapper';
 
 import MenuRoutes from './menuRoutes';
+import Logout from '@app/container/MenuContainer/Logout';
 
 interface MenuContainerProps {
   pageTitle: string;
@@ -50,6 +51,7 @@ const MenuContainer: React.FunctionComponent<MenuContainerProps> = (props) => {
         open={open}
         handleDrawerClose={handleDrawerClose}
         drawerList={MenuRoutes}
+        logoutComponent={<Logout />}
       />
       <ContentWrapper isDrawerOpen={open}>{props.children}</ContentWrapper>
     </Box>

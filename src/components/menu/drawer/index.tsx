@@ -8,9 +8,6 @@ import NavLink from '@components/menu/drawer/NavLink';
 import DrawerWrapper from '@components/menu/drawer/DrawerWrapper';
 import DrawerFooter from '@components/menu/drawer/DrawerFooter';
 
-import Button from '@mui/material/Button';
-import LogoutIcon from '@mui/icons-material/Logout';
-
 import styled from 'styled-components';
 
 const AppLogo = styled.div`
@@ -31,14 +28,15 @@ interface MenuDrawerProps {
   handleDrawerClose: () => void;
   open: boolean;
   drawerList: DrawerItem[];
-  logoutAction?: () => void;
+  logoutComponent?: React.ReactNode;
 }
 
 const MenuDrawer: React.FunctionComponent<MenuDrawerProps> = ({
   handleDrawerClose,
   open,
   drawerList,
-  logoutAction,
+  // logoutAction,
+  logoutComponent,
 }) => {
   return (
     <DrawerWrapper drawerPropsOverride={{ open: open }}>
@@ -55,15 +53,7 @@ const MenuDrawer: React.FunctionComponent<MenuDrawerProps> = ({
           </NavLink>
         ))}
       </List>
-      <DrawerFooter>
-        <Button
-          onClick={logoutAction}
-          style={{ color: '#545454', width: '120px' }}
-          startIcon={<LogoutIcon />}
-        >
-          Logout
-        </Button>
-      </DrawerFooter>
+      <DrawerFooter>{logoutComponent}</DrawerFooter>
     </DrawerWrapper>
   );
 };
