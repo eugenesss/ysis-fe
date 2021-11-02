@@ -5,7 +5,7 @@ interface DashboardProps {}
 
 const Dashboard: React.FunctionComponent<DashboardProps> = () => {
   return (
-    <MenuContainer pageTitle="pageTitle">
+    <MenuContainer title="Dashboard" subtitle="Common area to gather">
       dashboard Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
       blandit eros non odio feugiat mattis. Nulla consectetur sed orci in porta.
       Quisque pretium, dolor vel suscipit malesuada, nisi augue lacinia ligula,

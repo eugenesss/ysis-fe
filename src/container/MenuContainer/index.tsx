@@ -7,14 +7,15 @@ import Typography from '@mui/material/Typography';
 import AppBar from '@components/menu/appbar';
 import MenuHamburgerButton from '@components/menu/appbar/MenuHamburgerButton';
 
-import SideDrawer from '@components/menu/drawer';
+import MenuDrawer from '@components/menu/drawer';
 import ContentWrapper from '@components/menu/ContentWrapper';
 
 import MenuRoutes from './menuRoutes';
 import Logout from '@app/container/MenuContainer/Logout';
 
 interface MenuContainerProps {
-  pageTitle: string;
+  title: string;
+  subtitle?: string;
 }
 
 const MenuContainer: React.FunctionComponent<MenuContainerProps> = (props) => {
@@ -40,14 +41,23 @@ const MenuContainer: React.FunctionComponent<MenuContainerProps> = (props) => {
               handleOnClick={handleDrawerOpen}
               buttonProps={{ style: { ...(open && { display: 'none' }) } }}
             />
-            <Typography variant="h6" alignSelf="center">
-              {props.pageTitle}
-            </Typography>
+
+            <div>
+              <Typography variant="h6" alignSelf="center">
+                {props.title}
+              </Typography>
+              {props.subtitle && (
+                <Typography variant="caption" alignSelf="center">
+                  {props.subtitle}
+                </Typography>
+              )}
+            </div>
           </div>
           {/* iconbutton */}
         </React.Fragment>
       </AppBar>
-      <SideDrawer
+
+      <MenuDrawer
         open={open}
         handleDrawerClose={handleDrawerClose}
         drawerList={MenuRoutes}

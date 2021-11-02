@@ -7,27 +7,18 @@ import ListItem from '@components/menu/drawer/ListItem';
 import NavLink from '@components/menu/drawer/NavLink';
 import DrawerWrapper from '@components/menu/drawer/DrawerWrapper';
 import DrawerFooter from '@components/menu/drawer/DrawerFooter';
+import AppLogo from '@components/atoms/AppLogo';
 
-import styled from 'styled-components';
-
-const AppLogo = styled.div`
-  height: 50px;
-  width: 50px;
-  background-image: url('./assets/logo.png');
-  background-size: cover;
-  background-position: center;
-`;
-
-export interface DrawerItem {
+export interface DrawerItemProps {
   label: string;
   to: string;
   icon?: React.ReactNode;
 }
 
-interface MenuDrawerProps {
+export interface MenuDrawerProps {
   handleDrawerClose: () => void;
   open: boolean;
-  drawerList: DrawerItem[];
+  drawerList: DrawerItemProps[];
   logoutComponent?: React.ReactNode;
 }
 
@@ -35,7 +26,6 @@ const MenuDrawer: React.FunctionComponent<MenuDrawerProps> = ({
   handleDrawerClose,
   open,
   drawerList,
-  // logoutAction,
   logoutComponent,
 }) => {
   return (
@@ -47,8 +37,8 @@ const MenuDrawer: React.FunctionComponent<MenuDrawerProps> = ({
         </IconButton>
       </Toolbar>
       <List style={{ overflow: 'scroll' }}>
-        {drawerList.map((drawerItem) => (
-          <NavLink to={drawerItem.to} key={drawerItem.label}>
+        {drawerList.map((drawerItem, key) => (
+          <NavLink to={drawerItem.to} key={`${drawerItem.label}-${key}`}>
             <ListItem label={drawerItem.label} icon={drawerItem.icon} />
           </NavLink>
         ))}

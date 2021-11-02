@@ -8,8 +8,9 @@ import {
 } from 'react-router-dom';
 import LoginPage from './login';
 import Dashboard from './dashboard';
+import Collections from './collections';
 import NotFound from './not-found';
-import { useAuth } from '@app/container/AuthContainer/useAuth';
+import { useCookieAuth } from '@app/container/AuthContainer/useCookieAuth';
 
 interface RoutesProps {}
 
@@ -23,6 +24,9 @@ const Routes: React.FunctionComponent<RoutesProps> = () => {
         <PrivateRoute path="/dashboard" exact>
           <Dashboard />
         </PrivateRoute>
+        <PrivateRoute path="/collections" exact>
+          <Collections />
+        </PrivateRoute>
         <Route path="/login" component={LoginPage} />
         <Route component={NotFound} />
       </Switch>
@@ -33,7 +37,7 @@ const Routes: React.FunctionComponent<RoutesProps> = () => {
 export default Routes;
 
 function PrivateRoute({ children, ...rest }: RouteProps) {
-  let auth = useAuth();
+  let auth = useCookieAuth();
   return (
     <Route
       {...rest}

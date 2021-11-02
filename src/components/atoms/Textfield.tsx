@@ -57,19 +57,13 @@ const CustomTextField: FunctionComponent<CustomTextFieldProps> = ({
   return (
     <FormControl variant="standard" fullWidth>
       {label && (
-        <CustomLabel
-          data-testid={DataTestId.Label}
-          shrink
-          htmlFor="custom-input"
-          error={error}
-        >
+        <CustomLabel data-testid={DataTestId.Label} shrink error={error}>
           {label}
           {required && '*'}
         </CustomLabel>
       )}
       <CustomInput
         data-testid={DataTestId.Input}
-        id="custom-input"
         {...inputProps}
         error={error}
         required={required}

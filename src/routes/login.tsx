@@ -51,8 +51,7 @@ const LoginPage: React.FunctionComponent<LoginPageProps> = () => {
   const history = useHistory();
 
   const onSubmit = (e) => {
-    console.log({ username, password, rememberMe });
-    doLogin({ username, password });
+    doLogin({ username, password, rememberMe });
     history.push('/');
     e.preventDefault();
   };

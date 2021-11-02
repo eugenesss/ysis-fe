@@ -6,14 +6,17 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import { styled } from '@mui/material/styles';
 import { config } from '../menu.config';
 
-import styledC from 'styled-components';
+export enum DataTestId {
+  AppBar = 'appbar',
+  AppBarContent = 'appbar-content',
+}
 
-const AppBarContent = styledC.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-`;
+const AppBarContent = styled('div')({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  width: '100%',
+});
 
 interface ElevateBarProps {
   children: React.ReactElement;
@@ -28,7 +31,7 @@ function ElevationScroll(props: ElevateBarProps) {
   });
 
   return React.cloneElement(children, {
-    elevation: trigger ? 4 : 0,
+    elevation: trigger ? 1 : 0,
   });
 }
 
@@ -59,9 +62,11 @@ export default function ElevateAppBar(props: ElevateBarProps) {
     <React.Fragment>
       <CssBaseline />
       <ElevationScroll>
-        <AppBar open={props.open}>
+        <AppBar data-testid={DataTestId.AppBar} open={props.open}>
           <Toolbar>
-            <AppBarContent>{props.children}</AppBarContent>
+            <AppBarContent data-testid={DataTestId.AppBarContent}>
+              {props.children}
+            </AppBarContent>
           </Toolbar>
         </AppBar>
       </ElevationScroll>

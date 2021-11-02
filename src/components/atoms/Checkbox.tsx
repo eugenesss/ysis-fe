@@ -1,12 +1,12 @@
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import { styled } from '@mui/material/styles';
 import Checkbox, { CheckboxProps } from '@mui/material/Checkbox';
-import { FormControl, FormGroup, Typography } from '@mui/material';
+import { FormControl, Typography } from '@mui/material';
 import FormControlLabel, {
   FormControlLabelProps,
 } from '@mui/material/FormControlLabel';
 
-const BpIcon = styled('span')(({ theme }) => ({
+const BpIcon = styled('span')({
   borderRadius: 3,
   width: 16,
   height: 16,
@@ -26,7 +26,7 @@ const BpIcon = styled('span')(({ theme }) => ({
     boxShadow: 'none',
     background: 'rgba(206,217,224,.5)',
   },
-}));
+});
 
 const BpCheckedIcon = styled(BpIcon)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
@@ -47,10 +47,18 @@ const BpCheckedIcon = styled(BpIcon)(({ theme }) => ({
   },
 }));
 
-const CustomLabel = styled(Typography)(({ theme }) => ({
+export enum DataTestId {
+  CheckBox = 'checkbox',
+  Label = 'label',
+}
+const CustomLabel = styled(Typography)({
   fontWeight: 700,
   fontSize: '0.8rem',
-}));
+});
+
+interface CheckboxDisplayProps extends React.HTMLAttributes<HTMLDivElement> {
+  'data-testid'?: string;
+}
 
 function BpCheckbox(props: CheckboxProps) {
   return (
@@ -63,7 +71,12 @@ function BpCheckbox(props: CheckboxProps) {
       color="default"
       checkedIcon={<BpCheckedIcon />}
       icon={<BpIcon />}
-      inputProps={{ 'aria-label': 'Checkbox demo' }}
+      inputProps={
+        {
+          'aria-label': 'Checkbox demo',
+          'data-testid': DataTestId.CheckBox,
+        } as CheckboxDisplayProps
+      }
       {...props}
     />
   );
@@ -82,9 +95,13 @@ const CustomCheckbox: FunctionComponent<CustomCheckboxProps> = ({
     <FormControl>
       <FormControlLabel
         sx={{ marginLeft: '-6px' }}
-        control={<BpCheckbox />}
+        control={<BpCheckbox /*  data-testid={DataTestId.CheckBox} */ />}
         label={
-          <CustomLabel variant="body2" color="textSecondary">
+          <CustomLabel
+            data-testid={DataTestId.Label}
+            variant="body2"
+            color="textSecondary"
+          >
             {label}
           </CustomLabel>
         }

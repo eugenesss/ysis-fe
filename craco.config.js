@@ -2,11 +2,12 @@ const path = require('path');
 
 module.exports = {
   webpack: {
+    extensions: ['.ts', '.tsx'],
     alias: {
-      '@app': path.resolve(__dirname, 'src/'),
-      '@container': path.resolve(__dirname, 'src/container'),
-      '@components': path.resolve(__dirname, 'src/components'),
-      '@lib': path.resolve(__dirname, 'src/lib'),
+      '@app': path.resolve(__dirname, './src/'),
+      '@container': path.resolve(__dirname, './src/container'),
+      '@components': path.resolve(__dirname, './src/components'),
+      '@lib': path.resolve(__dirname, './src/lib'),
     },
   },
   jest: {
@@ -14,13 +15,15 @@ module.exports = {
       collectCoverage: true,
       collectCoverageFrom: [
         'src/**/*.{ts, tsx}',
+        '!src/*',
         '!**/node_modules/**',
-        '!**/.config.ts',
-        '!**/.mock.ts',
+        '!**/*.config.{ts, tsx}',
+        '!**/*.mock.{ts, tsx}',
       ],
-      moduleFileExtensions: ['ts', 'tsx'],
-      testMatch: ['**/*.spec.ts', '**/*.spec.tsx'],
+      moduleFileExtensions: ['.ts', '.tsx'],
+      testMatch: ['<rootDir>/spec/**/*.{spec}.{ts,tsx}'],
       verbose: true,
+      testEnvironment: 'jsdom',
     },
   },
 };
