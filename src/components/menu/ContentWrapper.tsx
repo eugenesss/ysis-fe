@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import { Toolbar } from '@components/menu/styles';
-import { config } from '@components/menu/menu.config';
+import { Toolbar } from '@components/Menu/styles';
+import { config } from '@components/Menu/menu.config';
 
 const { drawerWidth } = config;
 
@@ -27,7 +27,7 @@ const Main = styled('main', {
 
 const ContentContainer = styled('div')(({ theme }) => ({
   padding: theme.spacing(4),
-  paddingTop: theme.spacing(2),
+  paddingTop: theme.spacing(1),
 }));
 
 interface ContentWrapperProps {

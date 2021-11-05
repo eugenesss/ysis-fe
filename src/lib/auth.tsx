@@ -16,14 +16,19 @@ export const doLogin = async ({
   username,
   password,
   rememberMe,
-}: DoLoginParams) => {
-  // manually set cookie
-  var date = new Date();
-  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-  var expires = '; expires=' + date.toUTCString();
-  document.cookie = name + '=' + value + expires + '; path=/';
-  //   const result = await axios.post(baseUrl, { username, password });
-  //   console.log(result);
+}: DoLoginParams): Promise<boolean> => {
+  try {
+    // manually set cookie
+    var date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    var expires = '; expires=' + date.toUTCString();
+    document.cookie = name + '=' + value + expires + '; path=/';
+    //   const result = await axios.post(baseUrl, { username, password });
+    //   console.log(result);
+    return true;
+  } catch (error) {
+    throw new Error('error here');
+  }
 };
 
 export const doLogout = async () => {

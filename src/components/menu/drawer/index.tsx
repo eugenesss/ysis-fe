@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { Toolbar } from '@components/menu/styles';
+import { Toolbar } from '@components/Menu/styles';
 import List from '@mui/material/List';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ListItem from '@components/menu/drawer/ListItem';
-import NavLink from '@components/menu/drawer/NavLink';
-import DrawerWrapper from '@components/menu/drawer/DrawerWrapper';
-import DrawerFooter from '@components/menu/drawer/DrawerFooter';
+import ListItem from '@components/Menu/Drawer/ListItem';
+import NavLink from '@components/Menu/Drawer/NavLink';
+import DrawerWrapper from '@components/Menu/Drawer/DrawerWrapper';
+import DrawerFooter from '@components/Menu/Drawer/DrawerFooter';
 import AppLogo from '@components/atoms/AppLogo';
 
 export interface DrawerItemProps {

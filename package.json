@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@testing-library/dom": "^8.10.1",
+    "craco-alias": "^3.0.1",
     "jest-styled-components": "^7.0.5",
     "prettier": "^2.4.1"
   },
@@ -37,7 +38,8 @@
       "^@app(.*)$": "<rootDir>/src/app$1",
       "^@container(.*)$": "<rootDir>/src/container$1",
       "^@components(.*)$": "<rootDir>/src/components$1",
-      "^@lib(.*)$": "<rootDir>/src/lib$1"
+      "^@lib(.*)$": "<rootDir>/src/lib$1",
+      "^@routes(.*)$": "<rootDir>/src/routes$1"
     }
   },
   "scripts": {

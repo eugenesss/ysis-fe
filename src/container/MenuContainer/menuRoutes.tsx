@@ -1,10 +1,18 @@
-import { DrawerItemProps } from '@components/menu/drawer';
+import { DrawerItemProps } from '@components/Menu/Drawer';
 import HomeIcon from '@mui/icons-material/Home';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import SettingsIcon from '@mui/icons-material/Settings';
+import { AppbarButton } from '.';
 
-const menuRoutes: DrawerItemProps[] = [
+export const menuRoutes: DrawerItemProps[] = [
   { label: 'Dashboard', to: '/dashboard', icon: HomeIcon },
   { label: 'Collections', to: '/collections', icon: LibraryBooksIcon },
 ];
 
-export default menuRoutes;
+export const appbarRoutes: AppbarButton[] = [
+  {
+    label: 'Settings',
+    to: '/settings',
+    icon: SettingsIcon,
+  },
+];

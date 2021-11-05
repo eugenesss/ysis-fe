@@ -9,7 +9,7 @@ const PageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e6e6fa;
+  background-color: #eeeeee;
 `;
 const ContentContainer = styled.div`
   text-align: center;

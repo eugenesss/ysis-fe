@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { FunctionComponent } from 'react';
 import {
   Switch,
   Route,
@@ -9,12 +9,13 @@ import {
 import LoginPage from './login';
 import Dashboard from './dashboard';
 import Collections from './collections';
+import Settings from './settings';
 import NotFound from './not-found';
 import { useCookieAuth } from '@app/container/AuthContainer/useCookieAuth';
 
 interface RoutesProps {}
 
-const Routes: React.FunctionComponent<RoutesProps> = () => {
+const Routes: FunctionComponent<RoutesProps> = () => {
   return (
     <Router>
       <Switch>
@@ -27,6 +28,9 @@ const Routes: React.FunctionComponent<RoutesProps> = () => {
         <PrivateRoute path="/collections" exact>
           <Collections />
         </PrivateRoute>
+        <PrivateRoute path="/settings">
+          <Settings />
+        </PrivateRoute>
         <Route path="/login" component={LoginPage} />
         <Route component={NotFound} />
       </Switch>
@@ -36,7 +40,7 @@ const Routes: React.FunctionComponent<RoutesProps> = () => {
 
 export default Routes;
 
-function PrivateRoute({ children, ...rest }: RouteProps) {
+export function PrivateRoute({ children, ...rest }: RouteProps) {
   let auth = useCookieAuth();
   return (
     <Route

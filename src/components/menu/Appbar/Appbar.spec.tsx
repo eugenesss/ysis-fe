@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import Appbar, { DataTestId } from './';
+import Appbar, { DataTestId } from '.';
 
 describe('Appbar', () => {
   it('renders', () => {

@@ -50,9 +50,14 @@ const LoginPage: React.FunctionComponent<LoginPageProps> = () => {
 
   const history = useHistory();
 
-  const onSubmit = (e) => {
-    doLogin({ username, password, rememberMe });
-    history.push('/');
+  const onSubmit = async (e: React.FormEvent) => {
+    try {
+      await doLogin({ username, password, rememberMe });
+      history.push('/');
+    } catch (err) {
+      setErrorMessage(err);
+    }
+
     e.preventDefault();
   };
 
@@ -105,7 +110,6 @@ const LoginPage: React.FunctionComponent<LoginPageProps> = () => {
                 <Button
                   variant="contained"
                   sx={{ width: '100%' }}
-                  // onClick={onSubmit}
                   type="submit"
                 >
                   Sign In

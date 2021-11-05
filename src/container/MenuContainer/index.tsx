@@ -4,16 +4,39 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 
 // AppBar
-import AppBar from '@components/menu/appbar';
-import MenuHamburgerButton from '@components/menu/appbar/MenuHamburgerButton';
+import AppBar, { AppbarLeft, AppbarRight } from '@components/Menu/Appbar';
+import MenuHamburgerButton from '@components/atoms/MenuHamburgerButton';
 
-import MenuDrawer from '@components/menu/drawer';
-import ContentWrapper from '@components/menu/ContentWrapper';
+import MenuDrawer from '@components/Menu/Drawer';
+import ContentWrapper from '@components/Menu/ContentWrapper';
 
-import MenuRoutes from './menuRoutes';
+import { menuRoutes, appbarRoutes } from './menuRoutes';
 import Logout from '@app/container/MenuContainer/Logout';
+import IconButton from '@components/atoms/IconButton';
+import { Link } from 'react-router-dom';
 
-interface MenuContainerProps {
+export interface AppbarButton {
+  label: string;
+  icon: React.ReactNode;
+  to: string;
+}
+
+const MenuContainerHeading = ({ title, subtitle }) => {
+  return (
+    <div>
+      <Typography variant="h6" alignSelf="center">
+        {title}
+      </Typography>
+      {subtitle && (
+        <Typography variant="caption" alignSelf="center">
+          {subtitle}
+        </Typography>
+      )}
+    </div>
+  );
+};
+
+export interface MenuContainerProps {
   title: string;
   subtitle?: string;
 }
@@ -35,32 +58,26 @@ const MenuContainer: React.FunctionComponent<MenuContainerProps> = (props) => {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar open={open}>
-        <React.Fragment>
-          <div style={{ display: 'flex' }}>
-            <MenuHamburgerButton
-              handleOnClick={handleDrawerOpen}
-              buttonProps={{ style: { ...(open && { display: 'none' }) } }}
-            />
-
-            <div>
-              <Typography variant="h6" alignSelf="center">
-                {props.title}
-              </Typography>
-              {props.subtitle && (
-                <Typography variant="caption" alignSelf="center">
-                  {props.subtitle}
-                </Typography>
-              )}
-            </div>
-          </div>
-          {/* iconbutton */}
-        </React.Fragment>
+        <AppbarLeft>
+          <MenuHamburgerButton
+            handleOnClick={handleDrawerOpen}
+            buttonProps={{ style: { ...(open && { display: 'none' }) } }}
+          />
+          <MenuContainerHeading title={props.title} subtitle={props.subtitle} />
+        </AppbarLeft>
+        <AppbarRight>
+          {appbarRoutes.map((button, key) => (
+            <Link key={key} to={button.to}>
+              <IconButton label={button.label} icon={button.icon} />
+            </Link>
+          ))}
+        </AppbarRight>
       </AppBar>
 
       <MenuDrawer
         open={open}
         handleDrawerClose={handleDrawerClose}
-        drawerList={MenuRoutes}
+        drawerList={menuRoutes}
         logoutComponent={<Logout />}
       />
       <ContentWrapper isDrawerOpen={open}>{props.children}</ContentWrapper>
