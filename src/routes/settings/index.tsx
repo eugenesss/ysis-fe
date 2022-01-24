@@ -4,7 +4,7 @@ import SubMenuContainer, {
   SubNavItem,
 } from '@app/container/SubMenuContainer/SubMenuContainer';
 import UserManagement from './user-management';
-import Config from './config';
+import AccessConfig from './access-configration';
 
 const SettingSubNavs: SubNavItem[] = [
   { label: 'Settings', route: '/settings', component: <div>setting</div> },
@@ -13,13 +13,17 @@ const SettingSubNavs: SubNavItem[] = [
     route: '/settings/user-management',
     component: <UserManagement />,
   },
-  { label: 'Config', route: '/settings/config', component: <Config /> },
+  {
+    label: 'Access Configuration',
+    route: '/settings/access-configration',
+    component: <AccessConfig />,
+  },
 ];
 
 interface SettingsPageProps {}
 const SettingsPage: FunctionComponent<SettingsPageProps> = () => {
   return (
-    <MenuContainer title="Settings">
+    <MenuContainer title="Settings" subtitle="Tinker and tweak">
       <SubMenuContainer subNavItems={SettingSubNavs} />
     </MenuContainer>
   );

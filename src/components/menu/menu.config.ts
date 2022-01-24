@@ -1,4 +1,5 @@
 export const config = {
-  drawerWidth: 240,
-  sideDrawerBackground: '#f1f1f1',
+  drawerWidth: 220,
+  sideDrawerBackground: '#fff',
+  // sideDrawerBackground: '#f1f1f1',
 };

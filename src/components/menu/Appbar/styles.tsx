@@ -14,7 +14,7 @@ export const AppBarContent = styled('div')({
 export const CustomAppbar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
 })<AppBarProps>(({ theme, open }) => ({
-  background: 'white',
+  background: theme.palette.background.default,
   color: 'black',
   transition: theme.transitions.create(['margin', 'width'], {
     easing: theme.transitions.easing.sharp,
@@ -32,6 +32,7 @@ export const CustomAppbar = styled(MuiAppBar, {
 
 export const AppbarLeft = styled('div')({
   display: 'flex',
+  alignItems: 'center',
 });
 
 export const AppbarRight = styledC.div`

@@ -61,7 +61,9 @@ const MenuContainer: React.FunctionComponent<MenuContainerProps> = (props) => {
         <AppbarLeft>
           <MenuHamburgerButton
             handleOnClick={handleDrawerOpen}
-            buttonProps={{ style: { ...(open && { display: 'none' }) } }}
+            buttonProps={{
+              style: { ...(open && { display: 'none' }), marginRight: '16px' },
+            }}
           />
           <MenuContainerHeading title={props.title} subtitle={props.subtitle} />
         </AppbarLeft>

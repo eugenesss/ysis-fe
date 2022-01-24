@@ -4,15 +4,23 @@ import { CookiesProvider } from 'react-cookie';
 
 const theme = createTheme({
   palette: {
+    background: {
+      default: '#fafafa',
+    },
     primary: {
-      light: '#7b97fd',
+      light: '#95abfd',
       main: '#7b97fd',
-      dark: '#7b97fd',
+      dark: '#5669b1',
+    },
+    secondary: {
+      light: '#f38baf',
+      main: '#f06f9b',
+      dark: '#a84d6c',
     },
   },
   spacing: 8,
   shape: {
-    borderRadius: 8,
+    borderRadius: 6,
   },
   typography: {
     caption: {
@@ -28,7 +36,11 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
+          textTransform: 'none',
+        },
+        contained: {
           color: 'white',
+          boxShadow: 'none',
         },
       },
     },

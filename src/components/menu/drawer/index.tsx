@@ -1,13 +1,21 @@
 import * as React from 'react';
 import { Toolbar } from '@components/Menu/styles';
 import List from '@mui/material/List';
-import IconButton from '@mui/material/IconButton';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ListItem from '@components/Menu/Drawer/ListItem';
 import NavLink from '@components/Menu/Drawer/NavLink';
 import DrawerWrapper from '@components/Menu/Drawer/DrawerWrapper';
 import DrawerFooter from '@components/Menu/Drawer/DrawerFooter';
-import AppLogo from '@components/atoms/AppLogo';
+// import AppLogo from '@components/atoms/AppLogo';
+import { Divider, Typography } from '@mui/material';
+import styled from 'styled-components';
+import MenuHaburgerButton from '@app/components/atoms/MenuHamburgerButton';
+
+const LogoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+`;
 
 export interface DrawerItemProps {
   label: string;
@@ -30,19 +38,25 @@ const MenuDrawer: React.FunctionComponent<MenuDrawerProps> = ({
 }) => {
   return (
     <DrawerWrapper drawerPropsOverride={{ open: open }}>
-      <Toolbar>
-        <AppLogo />
-        <IconButton onClick={handleDrawerClose}>
-          <ChevronLeftIcon />
-        </IconButton>
-      </Toolbar>
-      <List style={{ overflow: 'scroll' }}>
-        {drawerList.map((drawerItem, key) => (
-          <NavLink to={drawerItem.to} key={`${drawerItem.label}-${key}`}>
-            <ListItem label={drawerItem.label} icon={drawerItem.icon} />
-          </NavLink>
-        ))}
-      </List>
+      <div>
+        <Toolbar style={{ padding: '16px' }}>
+          <LogoWrapper>
+            <MenuHaburgerButton handleOnClick={handleDrawerClose} />
+            <Typography variant="h6" sx={{ margin: 0 }}>
+              YS System
+            </Typography>
+            {/* <AppLogo /> */}
+          </LogoWrapper>
+        </Toolbar>
+        <Divider />
+        <List style={{ overflow: 'scroll', paddingTop: '16px' }}>
+          {drawerList.map((drawerItem, key) => (
+            <NavLink to={drawerItem.to} key={`${drawerItem.label}-${key}`}>
+              <ListItem label={drawerItem.label} icon={drawerItem.icon} />
+            </NavLink>
+          ))}
+        </List>
+      </div>
       <DrawerFooter>{logoutComponent}</DrawerFooter>
     </DrawerWrapper>
   );

@@ -27,7 +27,6 @@ const Main = styled('main', {
 
 const ContentContainer = styled('div')(({ theme }) => ({
   padding: theme.spacing(4),
-  paddingTop: theme.spacing(1),
 }));
 
 interface ContentWrapperProps {

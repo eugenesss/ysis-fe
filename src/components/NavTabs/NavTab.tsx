@@ -5,10 +5,10 @@ import { styled } from '@mui/material/styles';
 const StyledTab = styled((props: TabProps) => <Tab disableRipple {...props} />)(
   ({ theme }) => ({
     textTransform: 'none',
-    fontWeight: theme.typography.fontWeightRegular,
+    fontWeight: theme.typography.fontWeightBold,
     fontSize: theme.typography.pxToRem(14),
     minWidth: '0px',
-    minHeight: '40px',
+    minHeight: '48px',
     marginRight: theme.spacing(4),
     padding: 0,
     '&.Mui-selected': {

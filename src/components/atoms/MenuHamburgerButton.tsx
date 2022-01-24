@@ -16,11 +16,11 @@ const MenuHaburgerButton: React.FunctionComponent<MenuHaburgerButtonProps> = ({
       color="inherit"
       aria-label="open drawer"
       onClick={handleOnClick}
+      size="small"
       edge="start"
-      sx={{ marginRight: '16px' }}
       {...buttonProps}
     >
-      <MenuIcon />
+      <MenuIcon fontSize="small" />
     </IconButton>
   );
 };

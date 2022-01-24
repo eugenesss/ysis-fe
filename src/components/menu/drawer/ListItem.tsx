@@ -8,7 +8,7 @@ export enum DataTestId {
 }
 
 const StyledListItem = styled((props) => <ListItem {...props} />)`
-  justify-content: center;
+  justify-content: space-evenly;
   padding: 16px;
 `;
 const ListItemIcon = styled.div`
