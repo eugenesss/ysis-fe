@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import NavTabs, { NavTabItem } from '@components/NavTabs/NavTabContainer';
+import NavTabs, { NavTabItem } from '@app/components/SubNav';
 import { Switch, Route } from 'react-router-dom';
 import SpaceDivider from '@app/components/atoms/SpaceDivider';
 

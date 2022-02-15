@@ -4,11 +4,23 @@ import styled from 'styled-components';
 import Typography from '@mui/material/Typography';
 import SpaceDivider from '@components/atoms/SpaceDivider';
 
+export enum DataTestId {
+  PaperWrapper = 'paper-wrapper',
+  PaperHeader = 'paper-header',
+  PaperHeaderActionElement = 'paper-header-action',
+  PaperContent = 'paper-content',
+}
+
 interface PaperProps extends MuiPaperProps {}
 
 export const Paper: FunctionComponent<PaperProps> = (props) => {
   return (
-    <MuiPaper elevation={0} sx={{ padding: '8px 16px' }} {...props}></MuiPaper>
+    <MuiPaper
+      data-testid={DataTestId.PaperWrapper}
+      elevation={0}
+      sx={{ padding: '8px 16px' }}
+      {...props}
+    ></MuiPaper>
   );
 };
 
@@ -34,11 +46,15 @@ export const PaperHeader: FunctionComponent<PaperHeaderProps> = ({
   action,
 }) => {
   return (
-    <HeadingWrapper>
+    <HeadingWrapper data-testid={DataTestId.PaperHeader}>
       <Typography variant="body1" sx={{ fontWeight: 700 }}>
         {title}
       </Typography>
-      <HeadingAction>{action}</HeadingAction>
+      {action && (
+        <HeadingAction data-testid={DataTestId.PaperHeaderActionElement}>
+          {action}
+        </HeadingAction>
+      )}
     </HeadingWrapper>
   );
 };
@@ -50,7 +66,7 @@ export const PaperContent: FunctionComponent<PaperContentProps> = ({
   children,
 }) => {
   return (
-    <ContentWrapper>
+    <ContentWrapper data-testid={DataTestId.PaperContent}>
       <SpaceDivider spacing={2} />
       {children}
     </ContentWrapper>

@@ -12,12 +12,12 @@ import ContentWrapper from '@components/ContentWrapper';
 
 import { menuRoutes, appbarRoutes } from './menuRoutes';
 import Logout from '@app/container/MenuContainer/Logout';
-import IconButton from '@components/atoms/IconButton';
+import IconButton, { IconButtonProps } from '@components/atoms/IconButton';
 import { Link } from 'react-router-dom';
 
 export interface AppbarButton {
-  label: string;
-  icon: React.ReactNode;
+  label: IconButtonProps['label'];
+  icon: IconButtonProps['icon'];
   to: string;
 }
 

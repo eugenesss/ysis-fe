@@ -2,6 +2,11 @@ import { FunctionComponent } from 'react';
 import MuiIconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import { styled } from '@mui/material/styles';
+import { SvgIconComponent } from '@mui/icons-material';
+
+export enum DataTestId {
+  IconBtn = 'icon-btn',
+}
 
 const CustomIconButton = styled(MuiIconButton)(({ theme }) => ({
   border: `1px solid`,
@@ -17,7 +22,7 @@ const iconWrapper = (Icon) => {
 
 export interface IconButtonProps {
   label: string;
-  icon: React.ReactNode;
+  icon: SvgIconComponent;
   handleOnClick?: () => void;
 }
 
@@ -29,7 +34,12 @@ const IconButton: FunctionComponent<IconButtonProps> = ({
 }) => {
   return (
     <Tooltip title={label}>
-      <CustomIconButton onClick={handleOnClick} size="small" {...rest}>
+      <CustomIconButton
+        data-testid={DataTestId.IconBtn}
+        onClick={handleOnClick}
+        size="small"
+        {...rest}
+      >
         {iconWrapper(icon)}
       </CustomIconButton>
     </Tooltip>

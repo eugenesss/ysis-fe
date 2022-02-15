@@ -1,37 +1,19 @@
 import React, { FunctionComponent } from 'react';
-import Tabs, { TabsProps } from '@mui/material/Tabs';
 import NavTab from './NavTab';
+import NavTabs from './NavTabs';
 import { useHistory, useLocation, RouteProps } from 'react-router-dom';
-import { styled } from '@mui/material/styles';
 
-const StyledTabs = styled((props: TabsProps) => (
-  <Tabs
-    {...props}
-    scrollButtons={false}
-    variant="scrollable"
-    allowScrollButtonsMobile
-    TabIndicatorProps={{ children: <span className="MuiTabs-indicatorSpan" /> }}
-  />
-))(({ theme }) => ({
-  minHeight: '0px',
-  '& .MuiTabs-indicator': {
-    display: 'flex',
-    justifyContent: 'center',
-    backgroundColor: 'transparent',
-  },
-  '& .MuiTabs-indicatorSpan': {
-    maxWidth: '100%',
-    width: '100%',
-    backgroundColor: theme.palette.primary.main,
-  },
-}));
+export enum DataTestId {
+  NavTab = 'nav-tab',
+  NavTabs = 'nav-tabs',
+}
 
 export interface NavTabItem {
   label: string;
   route: RouteProps['path'];
 }
 
-interface NavTabContainerProps {
+export interface SubNavProps {
   items: NavTabItem[];
 }
 
@@ -41,13 +23,11 @@ function getRouteIdx(curPathname: string, navTabContainer: NavTabItem[]) {
   return indx;
 }
 
-const NavTabContainer: FunctionComponent<NavTabContainerProps> = ({
-  items,
-}) => {
+const SubNav: FunctionComponent<SubNavProps> = ({ items }) => {
   const history = useHistory();
   const location = useLocation();
 
-  const [value, setValue] = React.useState(
+  const [value, setValue] = React.useState<number>(
     getRouteIdx(location.pathname, items),
   );
 
@@ -63,16 +43,21 @@ const NavTabContainer: FunctionComponent<NavTabContainerProps> = ({
   );
 
   return (
-    <StyledTabs value={value} onChange={handleChange}>
+    <NavTabs
+      value={value}
+      handleChange={handleChange}
+      data-testid={DataTestId.NavTabs}
+    >
       {items.map((navTab) => (
         <NavTab
           key={navTab.label}
           label={navTab.label}
           onClick={() => handleOnClick(navTab.route)}
+          data-testid={DataTestId.NavTab}
         />
       ))}
-    </StyledTabs>
+    </NavTabs>
   );
 };
 
-export default NavTabContainer;
+export default SubNav;

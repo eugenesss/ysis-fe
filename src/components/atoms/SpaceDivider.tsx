@@ -1,5 +1,10 @@
-import React, { FunctionComponent } from 'react';
+import { FunctionComponent } from 'react';
 import { styled } from '@mui/material/styles';
+
+export enum DataTestId {
+  Space = 'space',
+  Line = 'line',
+}
 
 const CustomSpacer = styled('div')<SpaceDividerProps>(({ theme, spacing }) => ({
   paddingTop: spacing ? theme.spacing(0.5 * spacing) : theme.spacing(0.5),
@@ -22,7 +27,9 @@ const SpaceDivider: FunctionComponent<SpaceDividerProps> = ({
   line,
 }) => {
   return (
-    <CustomSpacer spacing={spacing}>{line && <CustomLine />}</CustomSpacer>
+    <CustomSpacer data-testid={DataTestId.Space} spacing={spacing}>
+      {line && <CustomLine data-testid={DataTestId.Line} />}
+    </CustomSpacer>
   );
 };
 

@@ -9,6 +9,7 @@ import DrawerFooter from '@components/Sidebar/Drawer/DrawerFooter';
 import { Divider, Typography } from '@mui/material';
 import styled from 'styled-components';
 import MenuHaburgerButton from '@components/atoms/MenuHamburgerButton';
+import { SvgIconComponent } from '@mui/icons-material';
 
 const LogoWrapper = styled.div`
   display: flex;
@@ -20,7 +21,7 @@ const LogoWrapper = styled.div`
 export interface DrawerItemProps {
   label: string;
   to: string;
-  icon?: React.ReactNode;
+  icon?: SvgIconComponent;
 }
 
 export interface MenuDrawerProps {
