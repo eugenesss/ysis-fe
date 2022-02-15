@@ -22,7 +22,7 @@ describe('DrawerWrapper', () => {
         -webkit-flex: 0 0 auto;
         -ms-flex: 0 0 auto;
         flex: 0 0 auto;
-        width: 240px;
+        width: 220px;
         -webkit-flex-shrink: 0;
         -ms-flex-negative: 0;
         flex-shrink: 0;
@@ -37,9 +37,9 @@ describe('DrawerWrapper', () => {
         -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        width: 240px;
+        width: 220px;
         box-sizing: border-box;
-        background: #f1f1f1;
+        background: #fff;
         color: #505050;
         border: none;
       }

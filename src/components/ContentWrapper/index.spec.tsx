@@ -1,4 +1,4 @@
-import ContentWrapper from './ContentWrapper';
+import ContentWrapper from '.';
 import { render } from '@testing-library/react';
 import 'jest-styled-components';
 
@@ -25,8 +25,8 @@ describe('ContentWrapper', () => {
         justify-content: space-between;
         min-height: 80px;
         padding: 32px;
-        padding-top: 8px;
-        padding-bottom: 8px;
+        padding-top: 20px;
+        padding-bottom: 16px;
       }
 
       .c0 {
@@ -36,12 +36,11 @@ describe('ContentWrapper', () => {
         flex-grow: 1;
         -webkit-transition: margin 195ms cubic-bezier(0.4,0,0.6,1) 0ms;
         transition: margin 195ms cubic-bezier(0.4,0,0.6,1) 0ms;
-        margin-left: -240px;
+        margin-left: -220px;
       }
 
       .c2 {
         padding: 32px;
-        padding-top: 8px;
       }
 
       <div>
@@ -84,8 +83,8 @@ describe('ContentWrapper', () => {
         justify-content: space-between;
         min-height: 80px;
         padding: 32px;
-        padding-top: 8px;
-        padding-bottom: 8px;
+        padding-top: 20px;
+        padding-bottom: 16px;
       }
 
       .c0 {
@@ -100,7 +99,6 @@ describe('ContentWrapper', () => {
 
       .c2 {
         padding: 32px;
-        padding-top: 8px;
       }
 
       <div>

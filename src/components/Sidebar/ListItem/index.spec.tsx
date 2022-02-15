@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import ListItem, { DataTestId } from './ListItem';
+import ListItem, { DataTestId } from '.';
 
 describe('ListItem', () => {
   it('renders without icon', () => {

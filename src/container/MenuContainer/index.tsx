@@ -4,11 +4,11 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 
 // AppBar
-import AppBar, { AppbarLeft, AppbarRight } from '@components/Menu/Appbar';
+import AppBar, { AppbarLeft, AppbarRight } from '@components/Sidebar/Appbar';
 import MenuHamburgerButton from '@components/atoms/MenuHamburgerButton';
 
-import MenuDrawer from '@components/Menu/Drawer';
-import ContentWrapper from '@components/Menu/ContentWrapper';
+import Sidebar from '@components/Sidebar';
+import ContentWrapper from '@components/ContentWrapper';
 
 import { menuRoutes, appbarRoutes } from './menuRoutes';
 import Logout from '@app/container/MenuContainer/Logout';
@@ -76,7 +76,7 @@ const MenuContainer: React.FunctionComponent<MenuContainerProps> = (props) => {
         </AppbarRight>
       </AppBar>
 
-      <MenuDrawer
+      <Sidebar
         open={open}
         handleDrawerClose={handleDrawerClose}
         drawerList={menuRoutes}

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { Redirect } from 'react-router-dom';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Button from '@mui/material/Button';
-import { doLogout } from '@app/lib/auth';
+import { doLogout } from '@app/services/AuthService';
 
 interface LogoutProps {}
 

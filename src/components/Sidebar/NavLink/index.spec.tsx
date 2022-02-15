@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import NavLink from './NavLink';
+import NavLink from '.';
 import { MemoryRouter } from 'react-router-dom';
 import 'jest-styled-components';
 

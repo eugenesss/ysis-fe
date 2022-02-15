@@ -1,7 +1,7 @@
 import { styled } from '@mui/material/styles';
 import MuiAppBar from '@mui/material/AppBar';
-import { AppBarProps } from './';
-import { config } from '@components/Menu/menu.config';
+import { AppBarProps } from '.';
+import { config } from '@config/menu.config';
 import styledC from 'styled-components';
 
 export const AppBarContent = styled('div')({

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { baseUrl } from '@lib/index';
+import { baseUrl } from '@services/fetch';
 import { useCookies } from 'react-cookie';
 import { sub } from 'date-fns';
 

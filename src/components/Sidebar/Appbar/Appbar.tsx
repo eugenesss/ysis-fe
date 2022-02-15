@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import { Toolbar } from '@components/Menu/styles';
+import Toolbar from '@components/atoms/AppToolbar';
 import CssBaseline from '@mui/material/CssBaseline';
-import ElevationScroll from '@components/Menu/Appbar/ElevationScroll';
+import ElevationScroll from '@components/Sidebar/Appbar/ElevationScroll';
 import { CustomAppbar, AppBarContent } from './styles';
 
 export enum DataTestId {

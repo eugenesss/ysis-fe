@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
-import { Toolbar } from '@components/Menu/styles';
-import { config } from '@components/Menu/menu.config';
+import Toolbar from '@components/atoms/AppToolbar';
+import { config } from '@config/menu.config';
 
 const { drawerWidth } = config;
 

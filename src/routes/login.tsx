@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Button, Grid, Typography, Paper, FormHelperText } from '@mui/material';
 import TextField from '@components/atoms/Textfield';
 import Checkbox from '@components/atoms/Checkbox';
-import { doLogin } from '@lib/auth';
+import { doLogin } from '@services/AuthService';
 
 import { styled } from '@mui/system';
 const LoginPageContainer = styled('div')({

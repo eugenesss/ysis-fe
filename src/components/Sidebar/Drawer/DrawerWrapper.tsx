@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Drawer, { DrawerProps } from '@mui/material/Drawer';
-import { config } from '@components/Menu/menu.config';
+import { config } from '@config/menu.config';
 
 interface DrawerWrapperProps {
   drawerPropsOverride?: Partial<DrawerProps>;

@@ -76,9 +76,10 @@ describe('MenuHamburgerButton', () => {
         color: rgba(0,0,0,0.54);
         -webkit-transition: background-color 150ms cubic-bezier(0.4,0,0.2,1) 0ms;
         transition: background-color 150ms cubic-bezier(0.4,0,0.2,1) 0ms;
-        margin-left: -12px;
+        margin-left: -3px;
         color: inherit;
-        margin-right: 16px;
+        padding: 5px;
+        font-size: 1.125rem;
       }
 
       .c1:hover {
@@ -104,7 +105,7 @@ describe('MenuHamburgerButton', () => {
         flex-shrink: 0;
         -webkit-transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
         transition: fill 200ms cubic-bezier(0.4,0,0.2,1) 0ms;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
       }
 
       @media print {
@@ -122,13 +123,13 @@ describe('MenuHamburgerButton', () => {
       <div>
         <button
           aria-label="open drawer"
-          class="c0 MuiButtonBase-root c1 MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart MuiIconButton-sizeMedium"
+          class="c0 MuiButtonBase-root c1 MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-edgeStart MuiIconButton-sizeSmall"
           tabindex="0"
           type="button"
         >
           <svg
             aria-hidden="true"
-            class="c2 MuiSvgIcon-root MuiSvgIcon-fontSizeMedium"
+            class="c2 MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
             data-testid="MenuIcon"
             focusable="false"
             viewBox="0 0 24 24"

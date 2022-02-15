@@ -5,7 +5,8 @@
       "@app/*": ["./*"],
       "@container/*": ["./container/*"],
       "@components/*": ["./components/*"],
-      "@lib/*": ["./lib/*"],
+      "@services/*": ["./services/*"],
+      "@config/*": ["./config/*"],
       "@routes/*": ["./routes/*"]
     }
   }

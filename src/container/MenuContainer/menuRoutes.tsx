@@ -1,4 +1,4 @@
-import { DrawerItemProps } from '@components/Menu/Drawer';
+import { DrawerItemProps } from '@components/Sidebar';
 import HomeIcon from '@mui/icons-material/Home';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import SettingsIcon from '@mui/icons-material/Settings';

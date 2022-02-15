@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { Toolbar } from '@components/Menu/styles';
+import Toolbar from '@components/atoms/AppToolbar';
 import List from '@mui/material/List';
-import ListItem from '@components/Menu/Drawer/ListItem';
-import NavLink from '@components/Menu/Drawer/NavLink';
-import DrawerWrapper from '@components/Menu/Drawer/DrawerWrapper';
-import DrawerFooter from '@components/Menu/Drawer/DrawerFooter';
+import ListItem from '@components/Sidebar/ListItem';
+import NavLink from '@components/Sidebar/NavLink';
+import DrawerWrapper from '@components/Sidebar/Drawer/DrawerWrapper';
+import DrawerFooter from '@components/Sidebar/Drawer/DrawerFooter';
 // import AppLogo from '@components/atoms/AppLogo';
 import { Divider, Typography } from '@mui/material';
 import styled from 'styled-components';
-import MenuHaburgerButton from '@app/components/atoms/MenuHamburgerButton';
+import MenuHaburgerButton from '@components/atoms/MenuHamburgerButton';
 
 const LogoWrapper = styled.div`
   display: flex;
